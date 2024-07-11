@@ -1,28 +1,162 @@
-body {
-    font-family: Arial, sans-serif;
-}
+/* Global styles */
 
-#error-message {
-    color: red;
-    display: none;
-}
-
-#success-message {
-    color: green;
-    display: none;
-}
-
-#ideas-list {
-    list-style: none;
-    padding: 0;
+* {
+    box-sizing: border-box;
     margin: 0;
-}
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  h1, h2 {
 
-#ideas-list li {
+    margin-top: 10px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  /* Form styles */
+  
+  #idea-form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Error and success message styles */
+  
+  #error-message, #success-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  #error-message {
+    color: #ff9999;
+  }
+  
+  #success-message {
+    color: #99ff99;
+  }
+  
+  /* Ideas list styles */
+  
+  #ideas-list {
+    text-align: center;
+    list-style: none;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  #ideas-list li {
     padding: 10px;
     border-bottom: 1px solid #ccc;
-}
-
-#ideas-list li:last-child {
+  }
+  
+  #ideas-list li:last-child {
     border-bottom: none;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f0f0f0;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #ccc;
+  }
+  
+  .approve-btn,.disapprove-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+.disapprove-btn {
+    background-color: #f6cb0c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .delete-btn{
+    background-color: #bf1616;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .approve-btn:hover {
+    background-color: #3e8e41;
+  }
+.disapprove-btn:hover{
+    background-color: #ebf436;
 }
+.delete-btn:hover {
+    background-color: #f44336;
+    }

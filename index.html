@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   
     <h1>Boîte à idée</h1>
     <form id="idea-form">
+        <div id="error-message"></div>
+        <div id="success-message"></div>
         <label for="label">Libellé :</label>
         <input type="text" id="label" name="label"><br><br>
         <label for="category">Catégorie :</label>
@@ -20,14 +23,16 @@
             <option value="education">Éducation</option>
             <!-- Ajouter d'autres options si nécessaire -->
         </select><br><br>
-        <label for="description">Message descriptif :</label>
+        <label for="description">Description :</label>
         <textarea id="description" name="description"></textarea><br><br>
         <input type="submit" value="Soumettre">
     </form>
-    <div id="error-message"></div>
-    <div id="success-message"></div>
-    <h2>Ideas</h2>
-    <ul id="ideas-list"></ul>
+    
+<h2>Idées</h2>
+
+<table id="ideas-list">
+
+</table>
 
     <script src="script.js"></script>
 </body>
