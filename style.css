@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#error-message {
+    color: red;
+    display: none;
+}
+
+#success-message {
+    color: green;
+    display: none;
+}
+
+#ideas-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#ideas-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#ideas-list li:last-child {
+    border-bottom: none;
+}
