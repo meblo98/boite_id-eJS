@@ -48,54 +48,56 @@ formIdee.addEventListener("submit", (e) => {
 });
 // affichage des idées
 function displayIdeas() {
-  listeIdee.innerHTML = "";
-  idee.forEach((idea, index) => {
-    const ideaHTML = `
-      <tr>
-        <td>${idea.label}</td>
-        <td>${idea.category}</td>
-        <td>${idea.description}</td>
-        <td>${idea.status}</td>
-        <td>
-          <button class="approve-btn" data-index="${index}">Approuver</button>
-          <button class="disapprove-btn" data-index="${index}">Désapprouver</button>
-          <button class="delete-btn" data-index="${index}">Supprimer</button>
-        </td>
-      </tr>
-    `;
-    listeIdee.innerHTML += ideaHTML;
-  });
-
-  const approveButtons = document.querySelectorAll(".approve-btn");
-  const disapproveButtons = document.querySelectorAll(".disapprove-btn");
-  const deleteButtons = document.querySelectorAll(".delete-btn");
-
-  approveButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const index = button.getAttribute("data-index");
-      idee[index].status = "Approuvée";
-      localStorage.setItem("ideas", JSON.stringify(idee));
-      displayIdeas();
+    listeIdee.innerHTML = "";
+    idee.forEach((idea, index) => {
+      const ideaHTML = `
+        <tr>
+          <td>${idea.label}</td>
+          <td>${idea.category}</td>
+          <td>${idea.description}</td>
+          <td>${idea.status}</td>
+          <td>
+            ${idea.status === "En attente"? `
+              <i class="fas fa-thumbs-up approve-icon" data-index="${index}"></i>
+              <i class="fas fa-thumbs-down disapprove-icon" data-index="${index}"></i>
+            ` : ""}
+            <i class="fas fa-trash-alt delete-icon" data-index="${index}"></i>
+          </td>
+        </tr>
+      `;
+      listeIdee.innerHTML += ideaHTML;
     });
-  });
-
-  disapproveButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const index = button.getAttribute("data-index");
-      idee[index].status = "Désapprouvée";
-      localStorage.setItem("ideas", JSON.stringify(idee));
-      displayIdeas();
+  
+    const approveIcons = document.querySelectorAll(".approve-icon");
+    const disapproveIcons = document.querySelectorAll(".disapprove-icon");
+    const deleteIcons = document.querySelectorAll(".delete-icon");
+  
+    approveIcons.forEach((icon) => {
+      icon.addEventListener("click", () => {
+        const index = icon.getAttribute("data-index");
+        idee[index].status = "Approuvée";
+        localStorage.setItem("ideas", JSON.stringify(idee));
+        displayIdeas();
+      });
     });
-  });
-
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const index = button.getAttribute("data-index");
-      idee.splice(index, 1);
-      localStorage.setItem("ideas", JSON.stringify(idee));
-      displayIdeas();
+  
+    disapproveIcons.forEach((icon) => {
+      icon.addEventListener("click", () => {
+        const index = icon.getAttribute("data-index");
+        idee[index].status = "Désapprouvée";
+        localStorage.setItem("ideas", JSON.stringify(idee));
+        displayIdeas();
+      });
     });
-  });
-}
+  
+    deleteIcons.forEach((icon) => {
+      icon.addEventListener("click", () => {
+        const index = icon.getAttribute("data-index");
+        idee.splice(index, 1);
+        localStorage.setItem("ideas", JSON.stringify(idee));
+        displayIdeas();
+      });
+    });
+  }
 
 displayIdeas();
