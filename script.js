@@ -3,17 +3,33 @@ const errorMessage = document.getElementById("error-message");
 const successMessage = document.getElementById("success-message");
 const listeIdee = document.getElementById("ideas-list");
 let idee = [];
+const categoryTable = [
+  { value: "politique", label: "Politique" },
+  { value: "sport", label: "Sport" },
+  { value: "santé", label: "Santé" },
+  { value: "education", label: "Éducation" }
+  // Add more options as needed
+];
+
 
 // charge les données stockées en local
 if (localStorage.getItem("ideas")) {
   idee = JSON.parse(localStorage.getItem("ideas"));
 }
+const categorySelect = document.getElementById("category");
 
 formIdee.addEventListener("submit", (e) => {
   e.preventDefault();
   const label = document.getElementById("label").value.trim();
   const category = document.getElementById("category").value;
   const description = document.getElementById("description").value.trim();
+  const selectedCategory = categorySelect.value;
+  const isValidCategory = categoryTable.some((category) => category.value === selectedCategory);
+  if (!isValidCategory) {
+    document.getElementById("error-message").innerHTML = "Catégorie invalide. Veuillez sélectionner une catégorie valide.";
+    return;
+  }
+  
   // validation du formulaire
   if (!label || !category || !description) {
     errorMessage.textContent = "Veuillez remplir tous les champs";
